@@ -13,30 +13,30 @@
 //  All rights reserved.
 //
 
-#import "Female.h"
+#import "Humf.h"
 #import "GameScene.h"
 
-@interface Female (PrivateMethods)
+@interface Humf (PrivateMethods)
 -(id) initWithShipImage;
 @end
 
 
-@implementation Female
+@implementation Humf
 
-+(id) female
++(id) humf
 {
 	return [[[self alloc] initWithShipImage] autorelease];
 }
 
 -(id) initWithShipImage
 {
-	if ((self = [super initWithFile:@"kitty0.png"]))
+	if ((self = [super initWithFile:@"humf0.png"]))
 	{
 		// load the ship's animation frames as textures and create a sprite frame
 		NSMutableArray* frames = [NSMutableArray arrayWithCapacity:5];
 		for (int i = 0; i < 2; i++)
 		{
-			NSString* file = [NSString stringWithFormat:@"kitty%i.png", i];
+			NSString* file = [NSString stringWithFormat:@"humf%i.png", i];
 			CCTexture2D* texture = [[CCTextureCache sharedTextureCache] addImage:file];
 			CGSize texSize = texture.contentSize;
 			CGRect texRect = CGRectMake(0, 0, texSize.width, texSize.height);
@@ -50,8 +50,7 @@
 		// run the animation by using the CCAnimate action
 		CCAnimate* animate = [CCAnimate actionWithAnimation:anim];
 		CCRepeatForever* repeat = [CCRepeatForever actionWithAction:animate];
-		repeat.tag = 15;
-        [self runAction:repeat];
+		[self runAction:repeat];
 		
         // call "update" for every frame		
 		//[self scheduleUpdate];

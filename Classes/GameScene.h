@@ -10,6 +10,8 @@
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 #import "Ship.h"
+#import "Humf.h"
+
 
 // HelloWorldLayer
 @interface GameScene : CCLayer
@@ -19,6 +21,8 @@
     CCSprite* bg;
     CCSprite* bg2;
 	CCSprite* bg3;
+    Humf* humf;
+
     int numStripes;
     
     Ship* ship;
@@ -34,6 +38,14 @@
     float enemyMoveDuration;
     
 	int numEnemiesMoved;
+    int stillHumping;
+    
+    float totaltime;
+    float nextshotime;
+    
+    int playerPositionY;
+    CGPoint playerVelocity;
+
     
 }
 
