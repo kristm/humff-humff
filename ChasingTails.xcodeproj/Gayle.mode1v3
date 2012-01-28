@@ -279,7 +279,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 114}, {186, 660}}</string>
+							<string>{{0, 51}, {186, 660}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -328,7 +328,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A38079AA14D45115005FC1B0</string>
+										<string>A3807A9114D46B33005FC1B0</string>
 										<key>history</key>
 										<array>
 											<string>A3D0085514D3631200C70D0C</string>
@@ -370,15 +370,15 @@
 											<string>A37A2CDF14D3E1510043C3AB</string>
 											<string>A37A2D0114D3EB260043C3AB</string>
 											<string>A37A2D0314D3EB260043C3AB</string>
-											<string>A37A2D1414D3EF9D0043C3AB</string>
 											<string>A3FF72DE14D418DE003A5094</string>
 											<string>A3FF72DF14D418DE003A5094</string>
 											<string>A3FF72ED14D41BC7003A5094</string>
-											<string>A3FF72EE14D41BC7003A5094</string>
-											<string>A3FF72EF14D41BC7003A5094</string>
 											<string>A380794814D447FD005FC1B0</string>
 											<string>A380798414D44FE3005FC1B0</string>
-											<string>A380798514D44FE3005FC1B0</string>
+											<string>A3807A4D14D466C0005FC1B0</string>
+											<string>A3807A5614D46741005FC1B0</string>
+											<string>A3807A5714D46741005FC1B0</string>
+											<string>A3807A5814D46741005FC1B0</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -578,10 +578,10 @@
 	<array>
 		<string>A380793414D4462F005FC1B0</string>
 		<string>A380792A14D445F4005FC1B0</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>A3D0072114D2FE2E00C70D0C</string>
 		<string>A380793214D4462F005FC1B0</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/Gayle/dev/ios/ChasingTails/ChasingTails.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -623,6 +623,8 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -917,6 +919,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -962,7 +966,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

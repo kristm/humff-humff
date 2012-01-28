@@ -53,16 +53,8 @@
 		ship.position = CGPointMake(80, 70);
 		[self addChild:ship z:10];
            
-        /*Female* female = [Female female];
-        female.position = CGPointMake(200, screenSize.height / 2);
-		[self addChild:female z:10];
-        */
-        
-         //CCSprite* bar  = [CCSprite spriteWithFile:@"bar.png"];
-        
-        
-        
-        //[self addChild:progressBar z:17];
+        energyPoints = 100;
+        ecstacyPoints = 0;
         
         humf = [Humf humf];
         humf.visible = NO;
@@ -73,29 +65,37 @@
         
         
         [self scheduleUpdate];
-        stillHumping = FALSE;
+        stillHumping = 0;
         
         playerPositionY = 70;
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"humff-prowl.wav"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.2];
         
-        CCProgressTimer* progressEnergy; 
+        
         progressEnergy = [CCProgressTimer progressWithFile:@"bar.png"];
         progressEnergy.type = kCCProgressTimerTypeHorizontalBarLR;
-        progressEnergy.percentage = 100.00;
+        progressEnergy.percentage = energyPoints;
         progressEnergy.position = CGPointMake(90,screenSize.height-25); //ccp(screenSize.width/2,screenSize.height/2);
         
         [self addChild:progressEnergy z:70];
         
-        CCProgressTimer* progressXtacy; 
+        CCSprite* border;
+        border = [CCSprite spriteWithFile:@"baroutline.png"];
+        border.position = CGPointMake(90, screenSize.height-25);
+        [self addChild:border z:71];
+        
         progressXtacy = [CCProgressTimer progressWithFile:@"bar.png"];
         progressXtacy.type = kCCProgressTimerTypeHorizontalBarLR;
-        progressXtacy.percentage = 100.00;
+        progressXtacy.percentage = ecstacyPoints;
         progressXtacy.position = CGPointMake(screenSize.width -90,screenSize.height-25); //ccp(screenSize.width/2,screenSize.height/2);
         
         [self addChild:progressXtacy z:70];
         
+        CCSprite* border2;
+        border2 = [CCSprite spriteWithFile:@"baroutline.png"];
+        border2.position = CGPointMake(screenSize.width -90,screenSize.height-25);
+        [self addChild:border2 z:71];
         
         CCLabelTTF* energyLabel;
         energyLabel = [CCLabelTTF labelWithString:@"Energy" fontName:@"Arial" fontSize:15]; 
@@ -210,6 +210,8 @@
 
 
 -(void) enemyDied:(int)g {
+    
+    stillHumping = 1;
 	CCSprite* enemy = [enemies objectAtIndex:g];
     //NSLog(@"%i", g);
     //enemy.visible = NO;
@@ -223,29 +225,43 @@
 	CGSize screenSize = [[CCDirector sharedDirector] winSize];
 	pos.x = screenSize.width + [enemy texture].contentSize.width;
 	enemy.position = pos;
+    
+    
 }
 
 -(void) update:(ccTime)delta
 {
 	
-    if(stillHumping == FALSE) {
+    if(stillHumping == 0) {
     	[self checkCollision];
-        stillHumping = TRUE;
-    }
-    
-    
-    if(stillHumping == TRUE) {
-    	totaltime += delta;
+    }else {
+        totaltime += delta;
         if(totaltime > nextshotime) {
     		nextshotime = totaltime + 1.1f;
             //[humf stopAllActions];
             
+            
+            if(energyPoints > 0) {
+            	energyPoints  -= 2;
+            }    
+            
+            if (ecstacyPoints < 100) {
+            	ecstacyPoints += 2;
+            }    
+            
+            //[progressEnergy setPercentage:energyPoints]; 
+            //NSLog(@"%i", ecstacyPoints);
+            
             humf.visible = NO;
         	ship.visible = YES;
-            stillHumping = FALSE;
+            stillHumping = 0;
     	}
-    }
         
+    }
+    progressXtacy.percentage = ecstacyPoints;    
+    progressEnergy.percentage = energyPoints;
+    
+    //[progressXtacy setPercentage:ecstacyPoints]; 
     
     NSNumber* factor = [speedFactors objectAtIndex:bg.zOrder];
     
@@ -273,28 +289,7 @@
     bg2.position = pos2;    
     playerPositionY=ship.position.y;
     
-    
-    //if (playerPositionY > 70) {
-    //	playerPositionY= playerPositionY-20;
-    //} 
-    //CGPoint pos3 = ship.position;
-    //pos3.y = playerVelocity.y;
-	
-    /*CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    float imageWidthHalved = [player texture].contentSize.width * 0.5f;
-    float leftBorderLimit = imageWidthHalved;
-    float rightBorderLimit = screenSize.width - imageWidthHalved;
-    
-    if (pos.x < leftBorderLimit){
-        pos.x = leftBorderLimit;        
-        playerVelocity = CGPointZero;
-    }
-    else if (pos.x > rightBorderLimit) {
-        pos.x = rightBorderLimit;        
-        playerVelocity = CGPointZero;
-    }*/
-    
-    //ship.position = pos3;
+
 	
 }
 
@@ -322,13 +317,11 @@
             
             if (CGRectIntersectsRect(playerRect, targetRect)) {
              	ship.visible = NO;
-               // targets.visible = NO;
-                //targets.visible = NO;
-                //targets.position = CGPointMake(0, 0);
                 [self enemyDied:g];
                 humf.visible = YES;
                 humf.position = ship.position;
                 [self addChild:humf z:11];
+                
                 
                 //NSLog(@"hit");
             }

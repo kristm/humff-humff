@@ -45,6 +45,13 @@
     
     int playerPositionY;
     CGPoint playerVelocity;
+    
+    CCProgressTimer* progressEnergy; 
+    CCProgressTimer* progressXtacy; 
+    
+    int energyPoints;
+    int ecstacyPoints;
+    
 
     
 }
