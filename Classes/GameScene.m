@@ -28,6 +28,7 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
+        score = 0;
         bgfile = 0;
         
         regenarate = false;
@@ -115,6 +116,12 @@
         xtacyLabel = [CCLabelTTF labelWithString:@"Ecstasy" fontName:@"Arial" fontSize:15]; 
         xtacyLabel.position = CGPointMake(screenSize.width - 37, screenSize.height-30);
         [self addChild:xtacyLabel z:500];
+        
+        
+        scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",score] fontName:@"Sniglet.ttf" fontSize:50];
+        scoreLabel.position = CGPointMake(screenSize.width/2, screenSize.height-30);
+        scoreLabel.color = ccc3(171,22,52); //171,22,52 - day color    137,195,35 - reverse
+        [self addChild:scoreLabel z:500];
         
     
     }
@@ -361,14 +368,16 @@
                                            ship.contentSize.height);
             
             if (CGRectIntersectsRect(playerRect, targetRect)) {
+                score += 1;
              	ship.visible = NO;
                 [self enemyDied:g];
                 humf.visible = YES;
                 humf.position = ship.position;
                 [self addChild:humf z:11];
+
                 
                 
-                //NSLog(@"hit");
+                NSLog(@"hit");
             }
             
             
@@ -376,6 +385,9 @@
             
             
         }
+    NSLog(@"score ---> %d",score);
+    [scoreLabel setString:[NSString stringWithFormat:@"%d",score]];
+
     
     
 }

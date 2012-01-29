@@ -68,6 +68,7 @@
 		A3807AD714D47DCF005FC1B0 /* sadcat1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3807AD514D47DCF005FC1B0 /* sadcat1.png */; };
 		A3807ADA14D47DE3005FC1B0 /* Lonely.m in Sources */ = {isa = PBXBuildFile; fileRef = A3807AD914D47DE3005FC1B0 /* Lonely.m */; };
 		A3807BE714D4C1A0005FC1B0 /* humfbg0.png in Resources */ = {isa = PBXBuildFile; fileRef = A3807BE614D4C1A0005FC1B0 /* humfbg0.png */; };
+		A3807C1A14D4CD2B005FC1B0 /* Sniglet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3807C1914D4CD2B005FC1B0 /* Sniglet.ttf */; };
 		A3D0074E14D3094D00C70D0C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D0074D14D3094D00C70D0C /* bg.png */; };
 		A3D0077114D30E1300C70D0C /* bg0.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D0077014D30E1300C70D0C /* bg0.png */; };
 		A3D007E514D31EE000C70D0C /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D007E414D31EE000C70D0C /* bg2.png */; };
@@ -342,6 +343,7 @@
 		A3807AD814D47DE3005FC1B0 /* Lonely.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lonely.h; sourceTree = "<group>"; };
 		A3807AD914D47DE3005FC1B0 /* Lonely.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lonely.m; sourceTree = "<group>"; };
 		A3807BE614D4C1A0005FC1B0 /* humfbg0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humfbg0.png; sourceTree = "<group>"; };
+		A3807C1914D4CD2B005FC1B0 /* Sniglet.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sniglet.ttf; sourceTree = "<group>"; };
 		A3D0074D14D3094D00C70D0C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		A3D0077014D30E1300C70D0C /* bg0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg0.png; sourceTree = "<group>"; };
 		A3D007E414D31EE000C70D0C /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2.png; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3807C1914D4CD2B005FC1B0 /* Sniglet.ttf */,
 				A3807BE614D4C1A0005FC1B0 /* humfbg0.png */,
 				A3807AD414D47DCF005FC1B0 /* sadcat0.png */,
 				A3807AD514D47DCF005FC1B0 /* sadcat1.png */,
@@ -1205,6 +1208,7 @@
 				A3807AD614D47DCF005FC1B0 /* sadcat0.png in Resources */,
 				A3807AD714D47DCF005FC1B0 /* sadcat1.png in Resources */,
 				A3807BE714D4C1A0005FC1B0 /* humfbg0.png in Resources */,
+				A3807C1A14D4CD2B005FC1B0 /* Sniglet.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

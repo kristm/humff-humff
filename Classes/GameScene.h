@@ -56,6 +56,8 @@
     int energyPoints;
     int ecstacyPoints;
     
+    int score;
+    CCLabelTTF* scoreLabel;
     int bgfile;
     
     
