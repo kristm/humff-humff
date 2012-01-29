@@ -28,31 +28,39 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
+        bgfile = 0;
+        
+        regenarate = false;
+        
         //[director enableRetinaDisplay:NO];
         screenSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
         
         // Background
-        bg = [CCSprite spriteWithFile:@"humfbg1.png"];
+        //NSString* file = [NSString stringWithFormat:@"humfbg%i.png", bgfile];
+        bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"humfbg%i.png", bgfile]];
         bg.position = CGPointMake(0, screenSize.height / 2);
         bg.anchorPoint = CGPointMake(0, 0.5f);
         [self addChild:bg z:0];
         
-        bg2 = [CCSprite spriteWithFile:@"humfbg1.png"];
+        
+        bg2 = [CCSprite spriteWithFile:[NSString stringWithFormat:@"humfbg%i.png", bgfile]];
         bg2.anchorPoint = CGPointMake(0, 0.5f);
         bg2.position = CGPointMake(screenSize.width - 1, screenSize.height / 2);
         bg2.flipX = YES;
         [self addChild:bg2 z:1];
         
-        bg3 = [CCSprite spriteWithFile:@"humfbg1.png"];
-        bg3.position = CGPointMake(0, screenSize.height / 2);
-        bg3.anchorPoint = CGPointMake(0, 0.5f);
-        //[self addChild:bg3 z:0];
+ 
                 
         ship = [Ship ship];
 		ship.position = CGPointMake(80, 70);
 		[self addChild:ship z:10];
-           
+ 
+        
+        lonely = [Lonely lonely];
+        lonely.visible = NO;
+		[self addChild:lonely z:10];
+        
         energyPoints = 100;
         ecstacyPoints = 0;
         
@@ -99,14 +107,14 @@
         
         CCLabelTTF* energyLabel;
         energyLabel = [CCLabelTTF labelWithString:@"Energy" fontName:@"Arial" fontSize:15]; 
-        energyLabel.position = CGPointMake(32, screenSize.height-50);
-        [self addChild:energyLabel z:5];
+        energyLabel.position = CGPointMake(32, screenSize.height-30);
+        [self addChild:energyLabel z:500];
         
         
         CCLabelTTF* xtacyLabel;
         xtacyLabel = [CCLabelTTF labelWithString:@"Ecstasy" fontName:@"Arial" fontSize:15]; 
-        xtacyLabel.position = CGPointMake(screenSize.width - 37, screenSize.height-50);
-        [self addChild:xtacyLabel z:5];
+        xtacyLabel.position = CGPointMake(screenSize.width - 37, screenSize.height-30);
+        [self addChild:xtacyLabel z:500];
         
     
     }
@@ -150,8 +158,8 @@
 	int numSpiders = [enemies count];
 	for (int i = 0; i < numSpiders; i++){
 		CCSprite* enemy = [enemies objectAtIndex:i];
-		enemy.position = CGPointMake(screenSize.width+ imageSize.width, (imageSize.height) * i + imageSize.height * 0.5f);
-		enemy.scale = 1;
+		enemy.position = CGPointMake(screenSize.width+ imageSize.width, ((imageSize.height) * i + imageSize.height * 0.5f)-175);
+		//enemy.scale = 1;
 		
 		//[enemy stopAllActions];
 	}
@@ -232,35 +240,71 @@
 -(void) update:(ccTime)delta
 {
 	
+    if(regenarate == true) {
+        totaltime += delta;
+        if(totaltime > nextshotime) {
+            nextshotime = totaltime + 1.1f;
+
+            if(energyPoints <= 100) {
+                energyPoints  += 1;
+            }    
+        
+            if (ecstacyPoints > 0) {
+                ecstacyPoints -= 1;
+            }
+        }    
+    }
+    
+    if (energyPoints >= 100) {
+        regenarate = false;
+        ship.visible = YES;
+        lonely.visible = NO;
+        //canHump = 1;
+    }
+    
+    if(regenarate==false){
+    	canHump = (energyPoints <= 0) ? false : true;
+    }
+    
     if(stillHumping == 0) {
-    	[self checkCollision];
+        if(canHump){
+            [self checkCollision];
+        }else{
+            ship.visible = NO;
+            lonely.visible = YES;
+            lonely.position = ship.position;
+            //ship.position = CGPointMake(1000,1000);
+            regenarate =true;
+            //NSLog(@"miserable existense");
+        }
     }else {
         totaltime += delta;
         if(totaltime > nextshotime) {
-    		nextshotime = totaltime + 1.1f;
+            nextshotime = totaltime + 1.1f;
             //[humf stopAllActions];
             
             
             if(energyPoints > 0) {
-            	energyPoints  -= 2;
+                energyPoints  -= 10;
             }    
             
             if (ecstacyPoints < 100) {
-            	ecstacyPoints += 2;
+                ecstacyPoints += 10;
             }    
             
             //[progressEnergy setPercentage:energyPoints]; 
             //NSLog(@"%i", ecstacyPoints);
             
             humf.visible = NO;
-        	ship.visible = YES;
+            ship.visible = YES;
             stillHumping = 0;
-    	}
+        }
+        
         
     }
     progressXtacy.percentage = ecstacyPoints;    
     progressEnergy.percentage = energyPoints;
-    
+    //NSLog(@"energy points %d",energyPoints);
     //[progressXtacy setPercentage:ecstacyPoints]; 
     
     NSNumber* factor = [speedFactors objectAtIndex:bg.zOrder];
@@ -283,6 +327,7 @@
         bg2.position = CGPointMake(screenSize.width-bg.position.x-5, screenSize.height / 2);
         //bg2.position = CGPointMake(screenSize.width, screenSize.height / 2);
         pos2 = bg2.position; 
+        NSLog(@"test");
     }
     
     

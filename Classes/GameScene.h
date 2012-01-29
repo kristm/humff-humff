@@ -11,6 +11,7 @@
 #import "cocos2d.h"
 #import "Ship.h"
 #import "Humf.h"
+#import "Lonely.h"
 
 
 // HelloWorldLayer
@@ -22,6 +23,7 @@
     CCSprite* bg2;
 	CCSprite* bg3;
     Humf* humf;
+    Lonely* lonely;
 
     int numStripes;
     
@@ -39,6 +41,8 @@
     
 	int numEnemiesMoved;
     int stillHumping;
+    bool canHump;
+    bool regenarate;
     
     float totaltime;
     float nextshotime;
@@ -51,6 +55,10 @@
     
     int energyPoints;
     int ecstacyPoints;
+    
+    int bgfile;
+    
+    
     
 
     
