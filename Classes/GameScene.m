@@ -22,23 +22,17 @@
 	return scene;
 }
 
-// on "init" you need to initialize your instance
 -(id) init
 {
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
         score = 0;
         bgfile = 0;
         
         regenarate = false;
         
-        //[director enableRetinaDisplay:NO];
         screenSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
         
-        // Background
-        //NSString* file = [NSString stringWithFormat:@"humfbg%i.png", bgfile];
         bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"humfbg%i.png", bgfile]];
         bg.position = CGPointMake(0, screenSize.height / 2);
         bg.anchorPoint = CGPointMake(0, 0.5f);
@@ -50,9 +44,7 @@
         bg2.position = CGPointMake(screenSize.width - 1, screenSize.height / 2);
         bg2.flipX = YES;
         [self addChild:bg2 z:1];
-        
- 
-                
+    
         ship = [Ship ship];
 		ship.position = CGPointMake(80, 70);
 		[self addChild:ship z:10];
@@ -106,15 +98,12 @@
         border2.position = CGPointMake(screenSize.width -90,screenSize.height-25);
         [self addChild:border2 z:71];
         
-        CCLabelTTF* energyLabel;
         energyLabel = [CCLabelTTF labelWithString:@"Energy" fontName:@"Arial" fontSize:15]; 
-        energyLabel.position = CGPointMake(32, screenSize.height-30);
+        energyLabel.position = CGPointMake(32, screenSize.height-50);
         [self addChild:energyLabel z:500];
         
-        
-        CCLabelTTF* xtacyLabel;
         xtacyLabel = [CCLabelTTF labelWithString:@"Ecstasy" fontName:@"Arial" fontSize:15]; 
-        xtacyLabel.position = CGPointMake(screenSize.width - 37, screenSize.height-30);
+        xtacyLabel.position = CGPointMake(screenSize.width - 37, screenSize.height-50);
         [self addChild:xtacyLabel z:500];
         
         
@@ -122,6 +111,12 @@
         scoreLabel.position = CGPointMake(screenSize.width/2, screenSize.height-30);
         scoreLabel.color = ccc3(171,22,52); //171,22,52 - day color    137,195,35 - reverse
         [self addChild:scoreLabel z:500];
+        
+        
+        energyLabel.color = ccc3(0,0,0);  
+        xtacyLabel.color = ccc3(0,0,0);
+        
+        bgCounter = 0;
         
     
     }
@@ -140,16 +135,9 @@
 	enemies = [[CCArray alloc] initWithCapacity:numSpiders];
 	
 	for (int i = 0; i < numSpiders; i++){
-		//CCSprite* enemy = [CCSprite spriteWithFile:@"4.png"];
-        //enemy.flipY = 180;
-		
-        Female* enemy = [Female female];
-        //enemy.position = CGPointMake(200, screenSize.height / 2);
-		[self addChild:enemy z:10];
-        
-        //[self addChild:enemy];
-		
-		[enemies addObject:enemy];
+	    Female* enemy = [Female female];
+    	[self addChild:enemy z:10];
+    	[enemies addObject:enemy];
 	}
 	
 	[self resetEnemies];
@@ -216,7 +204,6 @@
 	NSAssert([sender isKindOfClass:[CCSprite class]], @"sender is not of class CCSprite!");
 	CCSprite* enemy = (CCSprite*)sender;
 	
-	// move the spider back up outside the top of the screen
 	CGPoint pos = enemy.position;
 	CGSize screenSize = [[CCDirector sharedDirector] winSize];
 	pos.x= screenSize.width + [enemy texture].contentSize.width;
@@ -228,14 +215,9 @@
     
     stillHumping = 1;
 	CCSprite* enemy = [enemies objectAtIndex:g];
-    //NSLog(@"%i", g);
-    //enemy.visible = NO;
-    //[enemy stopActionByTag:15];
-    //[enemy stopActionByTag:12];
+
     [enemy stopAllActions];
-    //[self removeChild:enemy cleanup:YES];
     
-    // move the spider back up outside the top of the screen
 	CGPoint pos = enemy.position;
 	CGSize screenSize = [[CCDirector sharedDirector] winSize];
 	pos.x = screenSize.width + [enemy texture].contentSize.width;
@@ -250,7 +232,7 @@
     if(regenarate == true) {
         totaltime += delta;
         if(totaltime > nextshotime) {
-            nextshotime = totaltime + 1.1f;
+            nextshotime = totaltime + .060;
 
             if(energyPoints <= 100) {
                 energyPoints  += 1;
@@ -266,7 +248,6 @@
         regenarate = false;
         ship.visible = YES;
         lonely.visible = NO;
-        //canHump = 1;
     }
     
     if(regenarate==false){
@@ -280,17 +261,12 @@
             ship.visible = NO;
             lonely.visible = YES;
             lonely.position = ship.position;
-            //ship.position = CGPointMake(1000,1000);
             regenarate =true;
-            //NSLog(@"miserable existense");
         }
     }else {
         totaltime += delta;
         if(totaltime > nextshotime) {
             nextshotime = totaltime + 1.1f;
-            //[humf stopAllActions];
-            
-            
             if(energyPoints > 0) {
                 energyPoints  -= 10;
             }    
@@ -299,9 +275,6 @@
                 ecstacyPoints += 10;
             }    
             
-            //[progressEnergy setPercentage:energyPoints]; 
-            //NSLog(@"%i", ecstacyPoints);
-            
             humf.visible = NO;
             ship.visible = YES;
             stillHumping = 0;
@@ -309,10 +282,9 @@
         
         
     }
+    
     progressXtacy.percentage = ecstacyPoints;    
     progressEnergy.percentage = energyPoints;
-    //NSLog(@"energy points %d",energyPoints);
-    //[progressXtacy setPercentage:ecstacyPoints]; 
     
     NSNumber* factor = [speedFactors objectAtIndex:bg.zOrder];
     
@@ -334,14 +306,43 @@
         bg2.position = CGPointMake(screenSize.width-bg.position.x-5, screenSize.height / 2);
         //bg2.position = CGPointMake(screenSize.width, screenSize.height / 2);
         pos2 = bg2.position; 
-        NSLog(@"test");
+
+        
+        
+        
+        bgCounter++;
+        
+        if(bgCounter > 2) {
+            bgCounter = 0;
+            
+            
+            if(bgfile == 0) {
+                bgfile = 1;
+                scoreLabel.color = ccc3(137,195,35); //171,22,52 - day color    137,195,35 - reverse
+                energyLabel.color = ccc3(255,255,255);  
+                xtacyLabel.color = ccc3(255,255,255); 
+            }else{
+                bgfile = 0;
+                scoreLabel.color = ccc3(171,22,52); //171,22,52 - day color    137,195,35 - reverse
+                energyLabel.color = ccc3(0,0,0);  
+                xtacyLabel.color = ccc3(0,0,0); 
+                
+            }
+            
+            
+            CCTexture2D *tex0 = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"humfbg%i.png", bgfile]];
+            CCTexture2D *tex1 = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"humfbg%i.png", bgfile]];
+            
+            bg.texture = tex0;
+            bg2.texture = tex0;            
+            
+        }
+        
     }
     
     
     bg2.position = pos2;    
     playerPositionY=ship.position.y;
-    
-
 	
 }
 
@@ -364,8 +365,8 @@
             CGRect playerRect = CGRectMake(
                                            ship.position.x - (ship.contentSize.width/2), 
                                            ship.position.y - (ship.contentSize.height/2), 
-                                           ship.contentSize.width, 
-                                           ship.contentSize.height);
+                                           ship.contentSize.width/2, 
+                                           ship.contentSize.height/2);
             
             if (CGRectIntersectsRect(playerRect, targetRect)) {
                 score += 1;
@@ -373,11 +374,12 @@
                 [self enemyDied:g];
                 humf.visible = YES;
                 humf.position = ship.position;
+                [[SimpleAudioEngine sharedEngine] playEffect:@"cat-meow.wav"];
                 [self addChild:humf z:11];
 
                 
                 
-                NSLog(@"hit");
+                //NSLog(@"hit");
             }
             
             
@@ -385,35 +387,21 @@
             
             
         }
-    NSLog(@"score ---> %d",score);
+    //NSLog(@"score ---> %d",score);
     [scoreLabel setString:[NSString stringWithFormat:@"%d",score]];
 
     
     
 }
 
+
+
+
 -(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	
-    
-    //[ship stopAllActions];
-    float deceleration = 0.4f;
-	float sensitivity = 6.0f;
-	float maxVelocity = 100;
-    
-    
-    if(playerPositionY < 280) {
+	if(playerPositionY < 225) {
     	playerPositionY= playerPositionY+15;
     }
-	//playerVelocity.y = playerVelocity.y * deceleration + playerPositionY * sensitivity;
-	
-	/*if (playerVelocity.y > maxVelocity) {
-		playerVelocity.y = maxVelocity;
-	}
-	else if (playerVelocity.y < -maxVelocity) {
-		playerVelocity.y = -maxVelocity;
-	}  */
-    
     
     CGPoint pos = ship.position;
     pos.y = playerPositionY;
@@ -424,11 +412,9 @@
 	CCMoveTo* move = [CCMoveTo actionWithDuration:3.0f position:belowScreenPosition];
 	[ship runAction:move];
     
-    //NSLog(@"%i", playerPositionY);
     
 }
 
-// on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
 

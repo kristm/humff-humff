@@ -69,6 +69,8 @@
 		A3807ADA14D47DE3005FC1B0 /* Lonely.m in Sources */ = {isa = PBXBuildFile; fileRef = A3807AD914D47DE3005FC1B0 /* Lonely.m */; };
 		A3807BE714D4C1A0005FC1B0 /* humfbg0.png in Resources */ = {isa = PBXBuildFile; fileRef = A3807BE614D4C1A0005FC1B0 /* humfbg0.png */; };
 		A3807C1A14D4CD2B005FC1B0 /* Sniglet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3807C1914D4CD2B005FC1B0 /* Sniglet.ttf */; };
+		A38A100E14D4FAF5003890B7 /* cat-meow.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38A100D14D4FAF5003890B7 /* cat-meow.wav */; };
+		A38A103814D5029F003890B7 /* humf-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A38A103714D5029F003890B7 /* humf-icon.png */; };
 		A3D0074E14D3094D00C70D0C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D0074D14D3094D00C70D0C /* bg.png */; };
 		A3D0077114D30E1300C70D0C /* bg0.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D0077014D30E1300C70D0C /* bg0.png */; };
 		A3D007E514D31EE000C70D0C /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D007E414D31EE000C70D0C /* bg2.png */; };
@@ -344,6 +346,8 @@
 		A3807AD914D47DE3005FC1B0 /* Lonely.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lonely.m; sourceTree = "<group>"; };
 		A3807BE614D4C1A0005FC1B0 /* humfbg0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humfbg0.png; sourceTree = "<group>"; };
 		A3807C1914D4CD2B005FC1B0 /* Sniglet.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sniglet.ttf; sourceTree = "<group>"; };
+		A38A100D14D4FAF5003890B7 /* cat-meow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cat-meow.wav"; sourceTree = "<group>"; };
+		A38A103714D5029F003890B7 /* humf-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "humf-icon.png"; sourceTree = "<group>"; };
 		A3D0074D14D3094D00C70D0C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		A3D0077014D30E1300C70D0C /* bg0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg0.png; sourceTree = "<group>"; };
 		A3D007E414D31EE000C70D0C /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2.png; sourceTree = "<group>"; };
@@ -715,6 +719,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A38A103714D5029F003890B7 /* humf-icon.png */,
+				A38A100D14D4FAF5003890B7 /* cat-meow.wav */,
 				A3807C1914D4CD2B005FC1B0 /* Sniglet.ttf */,
 				A3807BE614D4C1A0005FC1B0 /* humfbg0.png */,
 				A3807AD414D47DCF005FC1B0 /* sadcat0.png */,
@@ -1209,6 +1215,8 @@
 				A3807AD714D47DCF005FC1B0 /* sadcat1.png in Resources */,
 				A3807BE714D4C1A0005FC1B0 /* humfbg0.png in Resources */,
 				A3807C1A14D4CD2B005FC1B0 /* Sniglet.ttf in Resources */,
+				A38A100E14D4FAF5003890B7 /* cat-meow.wav in Resources */,
+				A38A103814D5029F003890B7 /* humf-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
