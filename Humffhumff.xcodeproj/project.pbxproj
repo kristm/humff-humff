@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		1F3B9A2D0EF2145700286867 /* ChasingTailsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* ChasingTailsAppDelegate.m */; };
+		1F3B9A2D0EF2145700286867 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* AppDelegate.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
 		504DFBD010AF12E9006D82FE /* CLScoreServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBCA10AF12E9006D82FE /* CLScoreServerRequest.h */; };
@@ -280,10 +280,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D6058910D05DD3D006BFB54 /* ChasingTails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChasingTails.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F3B9A2B0EF2145700286867 /* ChasingTailsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChasingTailsAppDelegate.m; path = Classes/ChasingTailsAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		1F3B9A2C0EF2145700286867 /* ChasingTailsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChasingTailsAppDelegate.h; path = Classes/ChasingTailsAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		1F3B9A820EF2151B00286867 /* ChasingTails_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChasingTails_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		1D6058910D05DD3D006BFB54 /* Humffhumff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Humffhumff.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F3B9A2B0EF2145700286867 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1F3B9A2C0EF2145700286867 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1F3B9A820EF2151B00286867 /* Humffhumff_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Humffhumff_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
 		504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLScoreServerPost.m; sourceTree = "<group>"; };
@@ -586,7 +586,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* ChasingTails.app */,
+				1D6058910D05DD3D006BFB54 /* Humffhumff.app */,
 				506EE05E10304ED200A389B3 /* libcocos2d libraries.a */,
 			);
 			name = Products;
@@ -610,7 +610,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1F3B9A820EF2151B00286867 /* ChasingTails_Prefix.pch */,
+				1F3B9A820EF2151B00286867 /* Humffhumff_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -648,8 +648,8 @@
 				506EDC2F102F528A00A389B3 /* GameScene.h */,
 				E0F80F5E120A0182005866B8 /* RootViewController.h */,
 				E0F80F5F120A0182005866B8 /* RootViewController.m */,
-				1F3B9A2C0EF2145700286867 /* ChasingTailsAppDelegate.h */,
-				1F3B9A2B0EF2145700286867 /* ChasingTailsAppDelegate.m */,
+				1F3B9A2C0EF2145700286867 /* AppDelegate.h */,
+				1F3B9A2B0EF2145700286867 /* AppDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1118,9 +1118,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* ChasingTails */ = {
+		1D6058900D05DD3D006BFB54 /* Humffhumff */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ChasingTails" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Humffhumff" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -1131,9 +1131,9 @@
 			dependencies = (
 				506EE1A81030507B00A389B3 /* PBXTargetDependency */,
 			);
-			name = ChasingTails;
-			productName = ChasingTails;
-			productReference = 1D6058910D05DD3D006BFB54 /* ChasingTails.app */;
+			name = Humffhumff;
+			productName = Humffhumff;
+			productReference = 1D6058910D05DD3D006BFB54 /* Humffhumff.app */;
 			productType = "com.apple.product-type.application";
 		};
 		506EE05D10304ED200A389B3 /* cocos2d libraries */ = {
@@ -1158,7 +1158,7 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ChasingTails" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Humffhumff" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -1172,7 +1172,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* ChasingTails */,
+				1D6058900D05DD3D006BFB54 /* Humffhumff */,
 				506EE05D10304ED200A389B3 /* cocos2d libraries */,
 			);
 		};
@@ -1228,7 +1228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1F3B9A2D0EF2145700286867 /* ChasingTailsAppDelegate.m in Sources */,
+				1F3B9A2D0EF2145700286867 /* AppDelegate.m in Sources */,
 				506EDC31102F528A00A389B3 /* GameScene.m in Sources */,
 				E0F80F60120A0182005866B8 /* RootViewController.m in Sources */,
 				A37A2B4714D3B9920043C3AB /* Ship.m in Sources */,
@@ -1359,7 +1359,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ChasingTails_Prefix.pch;
+				GCC_PREFIX_HEADER = Humffhumff_Prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1368,7 +1368,7 @@
 					"-ObjC",
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = ChasingTails;
+				PRODUCT_NAME = Humffhumff;
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
@@ -1381,7 +1381,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ChasingTails_Prefix.pch;
+				GCC_PREFIX_HEADER = Humffhumff_Prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1390,7 +1390,7 @@
 					"-ObjC",
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = ChasingTails;
+				PRODUCT_NAME = Humffhumff;
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
@@ -1477,7 +1477,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ChasingTails" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Humffhumff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -1495,7 +1495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ChasingTails" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Humffhumff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

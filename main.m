@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[]) {
 	NSAutoreleasePool *pool = [NSAutoreleasePool new];
-	int retVal = UIApplicationMain(argc, argv, nil, @"ChasingTailsAppDelegate");
+	int retVal = UIApplicationMain(argc, argv, nil, @"AppDelegate");
 	[pool release];
 	return retVal;
 }

@@ -1,6 +1,6 @@
 //
-//  ChasingTailsAppDelegate.h
-//  ChasingTails
+//  AppDelegate.h
+//  Humff Humff
 //
 //  Created by Joan Gayle Villaneva on 1/27/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
@@ -10,7 +10,7 @@
 
 @class RootViewController;
 
-@interface ChasingTailsAppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
 	UIWindow			*window;
 	RootViewController	*viewController;
 }

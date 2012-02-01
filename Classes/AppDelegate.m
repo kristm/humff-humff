@@ -1,6 +1,6 @@
 //
-//  ChasingTailsAppDelegate.m
-//  ChasingTails
+//  AppDelegate.m
+//  Humff Humff
 //
 //  Created by Joan Gayle Villaneva on 1/27/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
@@ -8,12 +8,12 @@
 
 #import "cocos2d.h"
 
-#import "ChasingTailsAppDelegate.h"
+#import "AppDelegate.h"
 #import "GameConfig.h"
 #import "GameScene.h"
 #import "RootViewController.h"
 
-@implementation ChasingTailsAppDelegate
+@implementation AppDelegate
 
 @synthesize window;
 
